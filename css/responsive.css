@@ -1,0 +1,123 @@
+
+/* Mobile Navigation Menu */
+
+.site-nav {
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--color-ocean);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.4rem 0.7rem;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide navigation links until the menu is opened */
+@media (max-width: 768px) {
+
+    .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .site-nav .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 0;
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+
+    .site-nav .nav-links.is-open {
+        display: flex;
+    }
+
+    .site-nav .nav-links li a {
+        display: block;
+        padding: 0.9rem 0.5rem;
+    }
+}
+
+
+/* Premium Mobile Navigation Styling */
+
+@media (max-width: 768px) {
+
+    .site-nav .logo {
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+    }
+
+    .menu-toggle {
+        color: var(--color-ocean);
+        font-size: 1.7rem;
+        line-height: 1;
+        border: 1px solid rgba(18, 59, 70, 0.15);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 14px rgba(18, 59, 70, 0.08);
+        transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .menu-toggle:hover {
+        background: var(--color-gold);
+        transform: translateY(-1px);
+    }
+
+    .site-nav .nav-links {
+        margin-top: 0.8rem;
+        padding: 0.65rem;
+        gap: 0.25rem;
+        background: rgba(255, 255, 255, 0.97);
+        border: 1px solid rgba(18, 59, 70, 0.10);
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(18, 59, 70, 0.12);
+    }
+
+    .site-nav .nav-links li a {
+        color: var(--color-ocean);
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .site-nav .nav-links li a:hover,
+    .site-nav .nav-links li a:focus-visible {
+        background: rgba(233, 196, 106, 0.25);
+        color: var(--color-teal);
+    }
+
+    .site-nav .nav-links li:last-child a {
+        margin-top: 0.25rem;
+        background: var(--color-ocean);
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    .site-nav .nav-links li:last-child a:hover {
+        background: var(--color-teal);
+    }
+}

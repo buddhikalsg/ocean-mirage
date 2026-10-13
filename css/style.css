@@ -1,0 +1,1086 @@
+
+/* =================================
+   1. DESIGN FOUNDATION
+================================= */
+
+:root {
+    --color-ivory: #F7F3EB;
+    --color-ocean: #172D3A;
+    --color-gold: #B99768;
+    --color-white: #FFFFFF;
+    --color-text: #39464C;
+
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--color-text);
+    background: var(--color-ivory);
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* =================================
+   2. HEADER AND NAVIGATION
+================================= */
+
+.site-header {
+    background: var(--color-white);
+    padding: 20px 6%;
+}
+
+.main-navigation {
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.site-logo {
+    color: var(--color-ocean);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+.navigation-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+}
+
+.navigation-links a {
+    color: var(--color-ocean);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.navigation-links a:hover {
+    color: var(--color-gold);
+}
+
+.booking-link,
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    padding: 12px 22px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-radius: 10px;
+}
+
+.booking-link,
+.primary-button {
+    color: var(--color-white);
+    background: var(--color-ocean);
+}
+
+.booking-link:hover,
+.primary-button:hover {
+    background: #294B5B;
+}
+
+.secondary-button {
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+}
+
+.secondary-button:hover {
+    color: var(--color-ocean);
+    background: var(--color-white);
+}
+
+/* =================================
+   3. HERO SECTION
+================================= */
+
+.hero-section {
+    position: relative;
+    min-height: 650px;
+    padding: 100px 8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 22px;
+
+    color: var(--color-white);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15, 31, 39, 0.78),
+            rgba(15, 31, 39, 0.20)
+        ),
+        url("../images/property/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-location {
+    color: #F0D7AF;
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-section h1 {
+    max-width: 800px;
+    font-family: Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: normal;
+    line-height: 1.12;
+}
+
+.hero-description {
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
+.hero-section .primary-button {
+    color: var(--color-ocean);
+    background: var(--color-white);
+}
+
+.hero-section .primary-button:hover {
+    background: #E9E1D3;
+}
+
+/* =================================
+   4. SHARED CONTENT SECTIONS
+================================= */
+
+section:not(.hero-section) {
+    padding: 90px 8%;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    color: var(--color-ocean);
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+section p {
+    max-width: 750px;
+    margin-bottom: 18px;
+}
+
+.starting-price {
+    color: var(--color-ocean);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* =================================
+   5. FOOTER
+================================= */
+
+.site-footer {
+    padding: 40px 8%;
+    color: var(--color-white);
+    background: var(--color-ocean);
+    text-align: center;
+}
+
+.site-footer p {
+    margin-bottom: 8px;
+}
+
+/* =================================
+   6. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 900px) {
+    .main-navigation {
+        flex-wrap: wrap;
+    }
+
+    .navigation-links {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .hero-section {
+        min-height: 550px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 18px 5%;
+    }
+
+    .main-navigation {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .navigation-links {
+        gap: 10px 18px;
+    }
+
+    .hero-section {
+        min-height: 520px;
+        padding: 75px 6%;
+    }
+
+    section:not(.hero-section) {
+        padding: 60px 6%;
+    }
+
+    .site-footer {
+        padding: 30px 6%;
+    }
+}
+
+
+
+/* =================================
+   7. MOTION AND INTERACTION
+================================= */
+
+/* Smooth button movement */
+.booking-link,
+.primary-button,
+.secondary-button {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.booking-link:hover,
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(23, 45, 58, 0.18);
+}
+
+/* Hero content entrance */
+.hero-section > * {
+    animation: heroReveal 0.8s ease both;
+}
+
+.hero-section > *:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.hero-section > *:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.hero-section > *:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =================================
+   8. TROPICAL COLOUR UPGRADE
+================================= */
+
+:root {
+    --color-ivory: #F7F8F3;
+    --color-ocean: #123B46;
+    --color-gold: #E9C46A;
+    --color-white: #FFFFFF;
+
+    --color-teal: #087E8B;
+    --color-coral: #FF6B5F;
+    --color-text: #35464B;
+}
+
+/* Make navigation feel more polished */
+.site-header {
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(18, 59, 70, 0.06);
+}
+
+.site-logo {
+    letter-spacing: 0.3px;
+}
+
+.navigation-links a {
+    transition: color 0.25s ease;
+}
+
+.navigation-links a:hover {
+    color: var(--color-coral);
+}
+
+/* Colourful primary buttons */
+.booking-link,
+.primary-button {
+    background: var(--color-coral);
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.booking-link:hover,
+.primary-button:hover {
+    background: #E95248;
+}
+
+/* Elegant outlined secondary button */
+.secondary-button {
+    border-radius: 30px;
+    border-width: 2px;
+}
+
+/* Hero section enhancement */
+.hero-section {
+    overflow: hidden;
+    background-position: center;
+}
+
+.hero-location {
+    display: inline-block;
+    padding: 8px 14px;
+    color: var(--color-white);
+    background: rgba(8, 126, 139, 0.85);
+    border-radius: 30px;
+    letter-spacing: 2px;
+}
+
+/* Alternate section backgrounds */
+.introduction-section {
+    background: var(--color-white);
+}
+
+.featured-rooms-section {
+    background: #E7F3F0;
+}
+
+.explore-section {
+    background: var(--color-ocean);
+    color: var(--color-white);
+}
+
+.explore-section h2 {
+    color: var(--color-white);
+}
+
+.explore-section a {
+    color: var(--color-gold);
+}
+
+.gallery-preview-section {
+    background: var(--color-white);
+}
+
+.contact-section {
+    background: #FFF0E9;
+}
+
+/* Animated section headings */
+section:not(.hero-section) h2 {
+    transition: color 0.3s ease;
+}
+
+/* Keyboard accessibility */
+a:focus-visible {
+    outline: 3px solid var(--color-teal);
+    outline-offset: 4px;
+}
+
+/* Keep animations comfortable on smaller screens */
+@media (max-width: 600px) {
+    .hero-section {
+        background-position: center;
+    }
+
+    .booking-link,
+    .primary-button,
+    .secondary-button {
+        padding: 12px 18px;
+    }
+}
+
+
+/* =================================
+   9. ROOM CARDS
+================================= */
+
+.section-heading {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading > p:last-child {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-label {
+    color: var(--color-teal);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.room-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.room-card {
+    overflow: hidden;
+    background: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(18, 59, 70, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 38px rgba(18, 59, 70, 0.16);
+}
+
+.room-card > img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover > img {
+    transform: scale(1.04);
+}
+
+.room-card-content {
+    padding: 25px;
+}
+
+.room-category {
+    color: var(--color-teal);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.room-card h3 {
+    margin-bottom: 12px;
+    color: var(--color-ocean);
+    font-family: Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: normal;
+}
+
+.room-price {
+    margin-top: 20px;
+    color: var(--color-ocean);
+}
+
+.room-price strong {
+    font-size: 1.5rem;
+}
+
+.room-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--color-teal);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.room-link:hover {
+    color: var(--color-coral);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .room-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .room-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .room-card > img {
+        height: 250px;
+    }
+}
+
+
+/* =================================
+   10. DESTINATION CARDS
+================================= */
+
+.destination-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.destination-card {
+    overflow: hidden;
+    background: var(--color-white);
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+}
+
+.destination-card > img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.destination-card:hover > img {
+    transform: scale(1.05);
+}
+
+.destination-content {
+    padding: 24px;
+    color: var(--color-text);
+}
+
+.destination-category {
+    color: var(--color-teal);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.destination-content h3 {
+    margin-bottom: 12px;
+    color: var(--color-ocean);
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.destination-content a {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color-teal);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.destination-content a:hover {
+    color: var(--color-coral);
+}
+
+.destination-action {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .destination-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-card > img {
+        height: 240px;
+    }
+}
+
+
+/* =================================
+   11. PHOTO GALLERY
+================================= */
+
+.gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    min-height: 230px;
+
+    border-radius: 14px;
+    background: var(--color-ocean);
+    text-decoration: none;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 230px;
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(10, 30, 38, 0.8),
+        transparent 65%
+    );
+}
+
+.gallery-item span {
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    bottom: 18px;
+    left: 16px;
+
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+    opacity: 0.9;
+}
+
+.gallery-action {
+    margin-top: 35px;
+    text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item,
+    .gallery-item img {
+        min-height: 250px;
+    }
+}
+
+
+/* =================================
+   12. BOOKING CALL TO ACTION
+================================= */
+
+.booking-section {
+    background: var(--color-white);
+}
+
+.booking-panel {
+    position: relative;
+    overflow: hidden;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 65px 30px;
+
+    color: var(--color-white);
+    background: linear-gradient(
+        135deg,
+        #087E8B,
+        #123B46 75%
+    );
+
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(18, 59, 70, 0.18);
+}
+
+.booking-panel::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -70px;
+
+    width: 250px;
+    height: 250px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.booking-panel::after {
+    content: "";
+    position: absolute;
+    bottom: -140px;
+    left: -60px;
+
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.booking-label {
+    color: #F5D58B;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.booking-panel h2 {
+    margin-bottom: 20px;
+    color: var(--color-white);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.booking-description {
+    max-width: 650px;
+    margin: 0 auto 25px;
+}
+
+.booking-price {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+.booking-price strong {
+    color: #F5D58B;
+    font-size: 2rem;
+}
+
+.booking-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.booking-button,
+.booking-outline-button {
+    display: inline-block;
+    padding: 14px 24px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.booking-button {
+    color: #123B46;
+    background: #F5D58B;
+}
+
+.booking-button:hover {
+    background: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+.booking-outline-button {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.75);
+}
+
+.booking-outline-button:hover {
+    color: #123B46;
+    background: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+.booking-note {
+    margin: 25px auto 0;
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .booking-panel {
+        padding: 45px 22px;
+        border-radius: 18px;
+    }
+
+    .booking-actions {
+        flex-direction: column;
+    }
+
+    .booking-button,
+    .booking-outline-button {
+        width: 100%;
+    }
+}
+
+
+
+/* Desktop Navigation Fix */
+
+@media (min-width: 769px) {
+
+    .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .site-nav .logo {
+        flex-shrink: 0;
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .site-nav .menu-toggle {
+        display: none;
+    }
+
+    .site-nav .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .site-nav .nav-links li a {
+        display: inline-block;
+        padding: 0.65rem 0;
+        color: var(--color-ocean);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .site-nav .nav-links li:last-child a {
+        margin-top: 0;
+        padding: 0.75rem 1rem;
+        background: var(--color-ocean);
+        color: #FFFFFF;
+        border-radius: 999px;
+    }
+
+    .site-nav .nav-links li:last-child a:hover {
+        background: var(--color-teal);
+    }
+}
+
+
+
+/* Smooth Page Transitions */
+
+body {
+    animation: pageFadeIn 0.4s ease both;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.page-leaving {
+    animation: pageFadeOut 0.22s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    body.page-leaving {
+        animation: none;
+    }
+}
+/* Desktop view */
+.menu-toggle {
+    display: none;
+}
+
+.nav-menu {
+    display: block;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+}
+/* Room Features */
+.room-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 20px;
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.room-features li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    justify-content:start;
+}
+
+.room-features i {
+    display: inline-block;
+    flex: 0 0 22px;
+    width: 22px;
+    color: var(--color-teal);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.room-features li span {
+    display: inline;
+}
+
+@media (max-width: 400px) {
+    .room-features {
+        grid-template-columns: 1fr;
+    }
+}
