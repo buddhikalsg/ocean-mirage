@@ -1084,3 +1084,35 @@ body.page-leaving {
         grid-template-columns: 1fr;
     }
 }
+
+```css
+/* Consistent Navbar Across All Pages */
+.site-header {
+    width: 100%;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-nav .logo {
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.site-nav .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+```
