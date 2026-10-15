@@ -1,9 +1,10 @@
 
 const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+const navLinks = document.querySelector(".site-nav .nav-links");
 
+// Mobile navigation menu
 if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", () => {
         const isOpen = navLinks.classList.toggle("is-open");
 
         menuToggle.setAttribute("aria-expanded", isOpen);
@@ -14,17 +15,22 @@ if (menuToggle && navLinks) {
 
         menuToggle.textContent = isOpen ? "✕" : "☰";
     });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+            menuToggle.textContent = "☰";
+        });
+    });
 }
 
-
-
-/* Smooth Transitions Between Website Pages */
-
-document.querySelectorAll("a[href]").forEach(function (link) {
-    link.addEventListener("click", function (event) {
+// Smooth transitions between website pages
+document.querySelectorAll('a[href]').forEach((link) => {
+    link.addEventListener("click", (event) => {
         const destination = new URL(link.href, window.location.href);
 
-        // Allow normal browser behaviour for special links.
         if (
             event.ctrlKey ||
             event.metaKey ||
@@ -37,7 +43,7 @@ document.querySelectorAll("a[href]").forEach(function (link) {
             return;
         }
 
-        // Keep same-page section links working normally.
+        // Keep same-page section navigation working normally
         if (
             destination.pathname === window.location.pathname &&
             destination.hash
@@ -45,16 +51,15 @@ document.querySelectorAll("a[href]").forEach(function (link) {
             return;
         }
 
-        // Ignore links that point to the current page.
+        // Avoid reloading the exact same URL
         if (destination.href === window.location.href) {
             return;
         }
 
         event.preventDefault();
-
         document.body.classList.add("page-leaving");
 
-        setTimeout(function () {
+        window.setTimeout(() => {
             window.location.href = destination.href;
         }, 220);
     });

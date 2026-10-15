@@ -1,5 +1,51 @@
 
-/* Mobile Navigation Menu */
+/* =========================================================
+   OCEAN MIRAGE SUITES
+   RESPONSIVE CSS
+   Matches the final style.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. TABLET AND SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    .container {
+        width: min(100% - 2rem, 100%);
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .rooms-grid,
+    .room-grid,
+    .destination-grid,
+    .destinations-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+}
+
+
+/* =========================================================
+   2. MOBILE NAVIGATION - UP TO 768px
+   ========================================================= */
 
 .site-nav {
     position: relative;
@@ -21,53 +67,34 @@
     padding: 0;
 }
 
-/* Hide navigation links until the menu is opened */
+
 @media (max-width: 768px) {
+
+    /* Navigation layout */
 
     .site-nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .site-nav .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        gap: 0;
-        margin: 0;
-        padding: 0.5rem 0;
-    }
-
-    .site-nav .nav-links.is-open {
-        display: flex;
-    }
-
-    .site-nav .nav-links li a {
-        display: block;
-        padding: 0.9rem 0.5rem;
-    }
-}
-
-
-/* Premium Mobile Navigation Styling */
-
-@media (max-width: 768px) {
 
     .site-nav .logo {
         font-size: 1.05rem;
         font-weight: 700;
         letter-spacing: 0.02em;
         text-decoration: none;
+        max-width: calc(100% - 65px);
     }
 
+    /* Mobile menu button */
+
     .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
         color: var(--color-ocean);
         font-size: 1.7rem;
         line-height: 1;
@@ -75,7 +102,9 @@
         border-radius: 12px;
         background: rgba(255, 255, 255, 0.8);
         box-shadow: 0 4px 14px rgba(18, 59, 70, 0.08);
-        transition: background 0.25s ease, transform 0.25s ease;
+        transition:
+            background-color 0.25s ease,
+            transform 0.25s ease;
     }
 
     .menu-toggle:hover {
@@ -83,25 +112,50 @@
         transform: translateY(-1px);
     }
 
+    .menu-toggle:focus-visible {
+        outline: 2px solid var(--color-teal);
+        outline-offset: 3px;
+    }
+
+    /* Hide menu until button is clicked */
+
     .site-nav .nav-links {
-        margin-top: 0.8rem;
-        padding: 0.65rem;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
         gap: 0.25rem;
+        margin: 0.8rem 0 0;
+        padding: 0.65rem;
         background: rgba(255, 255, 255, 0.97);
         border: 1px solid rgba(18, 59, 70, 0.10);
         border-radius: 16px;
         box-shadow: 0 12px 30px rgba(18, 59, 70, 0.12);
     }
 
+    /* Show menu when JavaScript adds is-open */
+
+    .site-nav .nav-links.is-open {
+        display: flex;
+    }
+
+    .site-nav .nav-links li {
+        width: 100%;
+    }
+
     .site-nav .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 0.85rem 1rem;
         color: var(--color-ocean);
         font-size: 0.95rem;
         font-weight: 600;
         letter-spacing: 0.01em;
         text-decoration: none;
-        padding: 0.85rem 1rem;
         border-radius: 10px;
-        transition: background 0.2s ease, color 0.2s ease;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
     }
 
     .site-nav .nav-links li a:hover,
@@ -109,6 +163,8 @@
         background: rgba(233, 196, 106, 0.25);
         color: var(--color-teal);
     }
+
+    /* Last navigation link - booking CTA */
 
     .site-nav .nav-links li:last-child a {
         margin-top: 0.25rem;
@@ -120,4 +176,266 @@
     .site-nav .nav-links li:last-child a:hover {
         background: var(--color-teal);
     }
+
+
+    /* Hero section */
+
+    .hero {
+        min-height: 65vh;
+        padding: 4rem 1.25rem;
+        background-position: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 600px;
+        margin-inline: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        line-height: 1.15;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+
+    /* General sections */
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .section-title,
+    .section-heading {
+        font-size: clamp(1.7rem, 5vw, 2.4rem);
+        line-height: 1.25;
+    }
+
+    .section-description {
+        max-width: 100%;
+    }
+
+
+    /* Room cards and destination cards */
+
+    .rooms-grid,
+    .room-grid,
+    .destination-grid,
+    .destinations-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .room-card,
+    .destination-card {
+        min-width: 0;
+    }
+
+    .room-card img,
+    .destination-card img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+
+    /* Gallery */
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+    }
+
+    .gallery-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+
+    /* Booking panel */
+
+    .booking-panel {
+        padding: 2rem 1.25rem;
+    }
+
+    .booking-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .booking-buttons a,
+    .booking-buttons button {
+        max-width: 100%;
+    }
+
+
+    /* Footer */
+
+    .footer-content,
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   3. SMALL MOBILE - UP TO 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: calc(100% - 1.5rem);
+    }
+
+    .section {
+        padding: 2.75rem 0;
+    }
+
+    /* Navigation */
+
+    .site-nav .logo {
+        font-size: 0.98rem;
+    }
+
+    .menu-toggle {
+        font-size: 1.5rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 58vh;
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+
+    /* Stack cards on narrow screens */
+
+    .rooms-grid,
+    .room-grid,
+    .destination-grid,
+    .destinations-grid,
+    .footer-content,
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .room-card img,
+    .destination-card img {
+        width: 100%;
+    }
+
+
+    /* Gallery */
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .gallery-grid img {
+        height: 145px;
+    }
+
+
+    /* Buttons */
+
+    .btn,
+    .button {
+        max-width: 100%;
+    }
+
+    .booking-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .booking-buttons a,
+    .booking-buttons button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .booking-panel {
+        padding: 1.5rem 1rem;
+    }
+
+
+    /* Text safety */
+
+    h1,
+    h2,
+    h3,
+    p,
+    a {
+        overflow-wrap: anywhere;
+    }
+
+}
+
+
+/* =========================================================
+   4. EXTRA SMALL MOBILE - UP TO 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .container {
+        width: calc(100% - 1.25rem);
+    }
+
+    .site-nav .logo {
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gallery-grid img {
+        height: 190px;
+    }
+
+}
+
+
+/* =========================================================
+   5. REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
 }
